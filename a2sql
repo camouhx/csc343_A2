@@ -1,0 +1,182 @@
+-- Query 1
+
+-- a view of player and their value/goals ratio
+CREATE VIEW playerRating AS (
+    SELECT P.fname, P.lname, C.name, (P.value * 1.0 / P.goals * 1.0 ) AS ratio
+    FROM player P, country C
+    WHERE P.cid = C.cid AND
+          P.goals > 0
+);
+
+INSERT INTO Query1 (
+    SELECT fname, lname, name
+    FROM playerRating
+    WHERE ratio = (SELECT MIN(ratio) from playerRating)
+); 
+
+
+--------------------------------------------------------------------------------
+-- Query 2
+
+-- a view to find how many club players are playing in the World Cup
+CREATE VIEW clubPlayerNum AS (
+    SELECT FC.name, count(P.pid) AS num
+    FROM player P, club FC
+    WHERE P.fcid = FC.fcid
+    GROUP BY FC.name
+    ORDER BY num DESC, FC.name ASC
+);
+
+INSERT INTO Query2 (
+    SELECT name, num
+    FROM clubPlayerNum
+    LIMIT 3
+);
+
+--------------------------------------------------------------------------------
+-- Query 3
+
+-- a view of the first game of the entire World Cup
+CREATE VIEW firstMatchId AS (
+    SELECT M.mid
+    FROM Match M
+    WHERE M.date = (SELECT MIN(date) FROM MATCH) AND
+	  M.time = (SELECT MIN(M1.time)
+		    FROM MATCH M1
+		    WHERE M1.date = M.date)
+);
+
+INSERT INTO Query3 (
+    (SELECT C1.name = 'Brazil' OR C2.name = 'Brazil'
+     FROM firstMatchId FMID1, competes CP1, country C1, country C2
+     WHERE FMID1.mid = CP1.mid AND
+	  CP1.country1 = C1.cid AND
+	  CP1.country2 = C2.cid
+    )
+);
+
+--------------------------------------------------------------------------------
+-- Query 4
+
+-- a view of the matches that there are tickets bought on the same days
+CREATE VIEW sameDayMatchTicket AS (
+	SELECT M.mid, count(T.tid) AS tcnt
+	FROM Match M, Ticket T
+	WHERE M.mid = T.mid AND
+	      M.date = T.dateIssued
+	GROUP BY M.mid
+);
+
+INSERT INTO Query4 (
+	SELECT mid
+	FROM sameDayMatchTicket
+	WHERE tcnt >= 2
+	ORDER BY mid DESC
+);
+
+
+--------------------------------------------------------------------------------
+-- Query 5
+	     
+-- a view of all pairs of national teams and stadium where they have been played 
+CREATE VIEW teamStadium AS (
+	(SELECT C1.name, M1.sid
+	 FROM match M1, competes CP1, country C1
+	 WHERE M1.mid = CP1.mid AND
+	       CP1.country1 = C1.cid
+	)
+	UNION
+	(SELECT C2.name, M2.sid
+	 FROM match M2, competes CP2, country C2
+	 WHERE M2.mid = CP2.mid AND
+	      CP2.country2 = C2.cid
+	)
+);
+
+INSERT INTO Query5 (
+	SELECT name
+	FROM teamStadium
+	GROUP BY name
+	HAVING count(DISTINCT sid) = (SELECT count(sid) FROM stadium)
+);
+
+
+--------------------------------------------------------------------------------
+-- Query 6	
+
+-- a view of players with average appearce time higher than 75 minutes,
+-- also shows average time and how many matches they played
+CREATE VIEW playersAppearance AS (
+	SELECT A.pid, count(A.mid) AS mcnt, AVG(minutes*1.0) AS avgmin
+	FROM appearance A
+	GROUP BY A.pid
+	HAVING AVG(A.minutes) > 75
+);
+
+-- adding country information of players in playerAppearance
+CREATE VIEW playerResults AS (
+	SELECT PA.pid, P.cid, PA.mcnt, PA.avgmin
+	FROM playersAppearance PA, Player P
+	WHERE PA.pid = P.pid
+);
+
+-- a view of all pairs of national teams and the matches played
+CREATE VIEW teamMatchesPlayed AS (
+	(SELECT C1.cid, M1.mid
+	 FROM match M1, competes CP1, country C1
+	 WHERE M1.mid = CP1.mid AND
+	       CP1.country1 = C1.cid
+	)
+	UNION
+	(SELECT C2.cid, M2.mid
+	 FROM match M2, competes CP2, country C2
+	 WHERE M2.mid = CP2.mid AND
+	      CP2.country2 = C2.cid
+	)
+);
+
+-- a view of total number of games each national team played
+CREATE VIEW numOfMatchesPlayed AS (
+	SELECT cid, count(mid) as tmcnt
+	FROM teamMatchesPlayed
+	GROUP BY cid
+);
+
+INSERT INTO Query6 (
+	SELECT PR.pid, P.fname, P.lname, PR.avgmin
+	FROM playerResults PR, player P
+	WHERE PR.pid = P.pid AND
+		  PR.mcnt = ( SELECT MP.tmcnt
+					  FROM numOfMatchesPlayed MP, playerResults PR1
+					  WHERE PR1.pid = PR.pid AND
+						PR1.cid = MP.cid)
+	ORDER BY PR.avgmin DESC
+);
+
+--------------------------------------------------------------------------------
+-- Query 7
+
+-- a view of national teams and their corresponding budgets
+CREATE VIEW teamsBudget AS (
+	SELECT P.cid, sum(P.value) AS budget
+	FROM player P
+	GROUP BY P.cid
+);
+
+-- a view of topscorer, includes his pid, fname, lname, cid
+CREATE VIEW topScorer AS (
+	SELECT P.pid, P.fname, P.lname, P.cid
+	FROM player P
+	WHERE P.goals = (SELECT MAX(goals) FROM player)
+);
+
+INSERT INTO Query7 (
+	SELECT C.name, C.coach, TB.budget
+	FROM teamsBudget TB, topScorer TS, Country C
+	WHERE TS.cid = TB.cid AND
+	      TB.cid = C.cid AND
+	      TB.budget = (SELECT MIN(budget) FROM teamsBudget)
+);
+	      
+	
+

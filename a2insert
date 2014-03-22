@@ -1,0 +1,161 @@
+-- a2 insert file
+
+-- Insert into country
+INSERT INTO country (cid, name, coach) VALUES (1, 'Argentina', 'Coach ARG');
+INSERT INTO country (cid, name, coach) VALUES (2, 'Brazil',    'Coach BRA');
+INSERT INTO country (cid, name, coach) VALUES (3, 'England',   'Coach ENG');
+INSERT INTO country (cid, name, coach) VALUES (4, 'Italy',     'Coach ITA');
+INSERT INTO country (cid, name, coach) VALUES (5, 'Germany',   'Coach GER');
+INSERT INTO country (cid, name, coach) VALUES (6, 'Spain',     'Coach ESP');
+
+
+-- Insert into club
+INSERT INTO club (fcid, name, coach) VALUES (1, 'Chelsea',       'FC Coach 1');
+INSERT INTO club (fcid, name, coach) VALUES (2, 'Arsenal',       'FC Coach 2');
+INSERT INTO club (fcid, name, coach) VALUES (3, 'Barcelona',     'FC Coach 3');
+INSERT INTO club (fcid, name, coach) VALUES (4, 'Liverpool',     'FC Coach 4');
+INSERT INTO club (fcid, name, coach) VALUES (5, 'Real Madrid',   'FC Coach 5');
+INSERT INTO club (fcid, name, coach) VALUES (6, 'Bayern Munich', 'FC Coach 6');
+INSERT INTO club (fcid, name, coach) VALUES (7, 'PSG',           'FC Coach 7');
+
+
+--Insert into player
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (1 ,  'fname1',  'lname1',  'CF', 14, 12, 1, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (2 ,  'fname2',  'lname2',  'CM',  3, 10, 2, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (3 ,  'fname3',  'lname3',  'CB', 18, 3,  3, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (4 ,  'fname4',  'lname4',  'LF',  2, 4,  4, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (5 ,  'fname5',  'lname5',  'RF',  1, 5,  5, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (6 ,  'fname6',  'lname6',  'CF',  2, 12, 6, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (7 ,  'fname7',  'lname7',  'GK',  0, 6,  1, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (8 ,  'fname8',  'lname8',  'CM',  7, 7,  2, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (9 ,  'fname9',  'lname9',  'LM',  4, 4,  3, 1);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (10 , 'fname10', 'lname10', 'CF', 18, 20, 4, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (11 , 'fname11', 'lname11', 'RF',  9, 10, 5, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (12 , 'fname12', 'lname12', 'CF', 15,  7, 6, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (13 , 'fname13', 'lname13', 'CM',  2, 10, 1, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (14 , 'fname14', 'lname14', 'CF',  7, 14, 2, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (15 , 'fname15', 'lname15', 'CF',  1, 10, 3, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (16 , 'fname16', 'lname16', 'LF',  3, 1,  4, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (18 , 'fname18', 'lname18', 'CF',  2, 4,  6, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (19 , 'fname19', 'lname19', 'CF',  1, 6,  1, 2);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (20 , 'fname20', 'lname20', 'CM',  3, 5,  2, 3);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (21 , 'fname21', 'lname21', 'CF', 10, 9,  3, 3);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (22 , 'fname22', 'lname22', 'RF',  9, 4,  4, 4);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (23 , 'fname23', 'lname23', 'CF', 13, 15, 5, 4);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (24 , 'fname24', 'lname24', 'CM',  1, 7,  6, 4);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (25 , 'fname25', 'lname25', 'CB',  2, 3,  1, 5);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (26 , 'fname26', 'lname26', 'CF',  5, 6,  2, 3);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (27 , 'fname27', 'lname27', 'CF',  2, 4,  3, 6);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (28 , 'fname28', 'lname28', 'CF',  1, 1,  4, 6);
+INSERT INTO player (pid, fname, lname, position, goals, value, cid, fcid) VALUES (29 , 'fname29', 'lname29', 'LF',  1, 9,  5, 7);
+
+
+--Insert into stadium
+INSERT INTO stadium (sid, capacity, city) VALUES (1,  52300, 'City 1');
+INSERT INTO stadium (sid, capacity, city) VALUES (2,  30000, 'City 2');
+INSERT INTO stadium (sid, capacity, city) VALUES (3,  28500, 'City 3');
+INSERT INTO stadium (sid, capacity, city) VALUES (4,  45000, 'City 4');
+INSERT INTO stadium (sid, capacity, city) VALUES (5,  42500, 'City 5');
+INSERT INTO stadium (sid, capacity, city) VALUES (6,  37000, 'City 6');
+INSERT INTO stadium (sid, capacity, city) VALUES (7,  36500, 'City 7');
+INSERT INTO stadium (sid, capacity, city) VALUES (8,  55000, 'City 8');
+INSERT INTO stadium (sid, capacity, city) VALUES (9,  29900, 'City 9');
+
+
+--Insert into match
+INSERT INTO match (mid, date, time, sid) VALUES (1,  '02/06', '16:00', 1);
+INSERT INTO match (mid, date, time, sid) VALUES (2,  '01/06', '19:00', 2);
+INSERT INTO match (mid, date, time, sid) VALUES (3,  '03/06', '16:30', 3);
+INSERT INTO match (mid, date, time, sid) VALUES (4,  '04/06', '19:00', 6);
+INSERT INTO match (mid, date, time, sid) VALUES (5,  '10/06', '16:00', 5);
+INSERT INTO match (mid, date, time, sid) VALUES (6,  '12/06', '19:30', 4);
+INSERT INTO match (mid, date, time, sid) VALUES (7,  '15/06', '19:00', 7);
+INSERT INTO match (mid, date, time, sid) VALUES (8,  '19/06', '14:00', 9);
+INSERT INTO match (mid, date, time, sid) VALUES (9,  '28/06', '18:30', 8);
+INSERT INTO match (mid, date, time, sid) VALUES (10, '28/06', '20:30', 8);
+INSERT INTO match (mid, date, time, sid) VALUES (11, '29/06', '18:00', 4);
+INSERT INTO match (mid, date, time, sid) VALUES (12, '02/07', '19:00', 2);
+INSERT INTO match (mid, date, time, sid) VALUES (13, '08/07', '21:00', 6);
+INSERT INTO match (mid, date, time, sid) VALUES (14, '17/07', '18:00', 9);
+INSERT INTO match (mid, date, time, sid) VALUES (15, '18/07', '18:30', 1);
+INSERT INTO match (mid, date, time, sid) VALUES (16, '21/07', '20:00', 1);
+INSERT INTO match (mid, date, time, sid) VALUES (17, '22/07', '20:00', 4);
+INSERT INTO match (mid, date, time, sid) VALUES (18, '23/07', '20:15', 5);
+INSERT INTO match (mid, date, time, sid) VALUES (19, '24/07', '21:00', 7);
+INSERT INTO match (mid, date, time, sid) VALUES (20, '28/07', '20:00', 9);
+
+
+--Insert into ticket
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (123, '01/06', '15:32', 2);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (147, '01/06', '15:12', 2);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (198, '01/06', '08:09', 2);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (243, '10/06', '11:21', 5);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (241, '05/06', '19:42', 7);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (242, '06/06', '15:38', 7);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (249, '01/06', '11:21', 8);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (267, '05/06', '13:42', 8);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (297, '19/06', '11:21', 8);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (299, '19/06', '06:39', 8);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (334, '19/06', '12:07', 14);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (353, '17/07', '09:04', 14);
+INSERT INTO ticket (tid, dateIssued, timeIssued, mid) VALUES (361, '17/07', '12:27', 19);
+
+
+--Insert into competes
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (1,  2, 3, 2, 0);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (2,  3, 6, 2, 3);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (3,  1, 5, 2, 3);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (4,  5, 4, 3, 1);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (5,  3, 1, 1, 1);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (6,  6, 2, 4, 1);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (7,  3, 4, 1, 0);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (8,  4, 6, 3, 2);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (9,  2, 4, 1, 2);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (10, 5, 6, 1, 3);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (11, 1, 6, 0, 2);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (12, 5, 3, 4, 0);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (13, 2, 1, 5, 3);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (14, 3, 2, 0, 0);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (15, 4, 6, 0, 2);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (16, 5, 2, 2, 1);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (17, 4, 5, 0, 3);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (18, 5, 1, 4, 2);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (19, 6, 5, 1, 3);
+INSERT INTO competes (mid, country1, country2, goals1, goals2) VALUES (20, 5, 2, 2, 1);
+
+
+--Insert into appearance
+INSERT INTO appearance (mid, pid, minutes) VALUES (4,  10, 90);
+INSERT INTO appearance (mid, pid, minutes) VALUES (7,  10, 70);
+INSERT INTO appearance (mid, pid, minutes) VALUES (8,  10, 90);
+INSERT INTO appearance (mid, pid, minutes) VALUES (9,  10, 75);
+INSERT INTO appearance (mid, pid, minutes) VALUES (15, 10, 80);
+INSERT INTO appearance (mid, pid, minutes) VALUES (17, 10, 90);
+
+INSERT INTO appearance (mid, pid, minutes) VALUES (3,  23, 75);
+INSERT INTO appearance (mid, pid, minutes) VALUES (12, 23, 70);
+INSERT INTO appearance (mid, pid, minutes) VALUES (10, 23, 80);
+INSERT INTO appearance (mid, pid, minutes) VALUES (4,  23, 90);
+INSERT INTO appearance (mid, pid, minutes) VALUES (20, 23, 76);
+INSERT INTO appearance (mid, pid, minutes) VALUES (17, 23, 77);
+INSERT INTO appearance (mid, pid, minutes) VALUES (18, 23, 79);
+INSERT INTO appearance (mid, pid, minutes) VALUES (19, 23, 74);
+INSERT INTO appearance (mid, pid, minutes) VALUES (16, 23, 78);
+
+--played all national team matches, but avg(minutes) < 75
+INSERT INTO appearance (mid, pid, minutes) VALUES (3,   1, 60);
+INSERT INTO appearance (mid, pid, minutes) VALUES (5,   1, 70);
+INSERT INTO appearance (mid, pid, minutes) VALUES (11,  1, 60);
+INSERT INTO appearance (mid, pid, minutes) VALUES (13,  1, 65);
+INSERT INTO appearance (mid, pid, minutes) VALUES (18,  1, 62);
+
+--avg(minutes) > 75 but didn't play all the national team matches
+INSERT INTO appearance (mid, pid, minutes) VALUES (1,   3, 80);
+INSERT INTO appearance (mid, pid, minutes) VALUES (2,   3, 90);
+INSERT INTO appearance (mid, pid, minutes) VALUES (7,   3, 75);
+INSERT INTO appearance (mid, pid, minutes) VALUES (12,  3, 70);
+INSERT INTO appearance (mid, pid, minutes) VALUES (14,  3, 75);
+
+
+
+

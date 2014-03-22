@@ -1,0 +1,2 @@
+java -cp postgresql-9.1-903.jdbc4.jar:. a2test "jdbc:postgresql://localhost:5432/csc343h-c4hexian" "c4hexian" ""
+

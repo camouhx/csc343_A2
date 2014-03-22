@@ -1,0 +1,22 @@
+DROP VIEW playerRating;
+DROP TABLE Query1;
+
+DROP VIEW clubPlayerNum;
+DROP TABLE Query2;
+
+DROP VIEW firstMatchId;
+DROP TABLE Query3;
+
+DROP VIEW sameDayMatchTicket;
+DROP TABLE Query4;
+
+DROP VIEW teamStadium;
+DROP TABLE Query5;
+
+DROP VIEW playersAppearance CASCADE;
+DROP VIEW teamMatchesPlayed CASCADE;
+DROP TABLE Query6;
+
+DROP VIEW teamsBudget;
+DROP VIEW topScorer;
+DROP TABLE Query7;
